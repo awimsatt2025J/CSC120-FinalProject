@@ -4,21 +4,11 @@ public class Building {
     protected String address;
     protected int nFloors;
     protected int activeFloor = -1; // Default value indicating we are not inside this building
+    protected int nRooms;
 
     /* Default constructor */
     public Building() {
         this("<Name Unknown>", "<Address Unknown>", 1);
-    }
-
-    /* Overloaded constructor with address only */
-    public Building(String address) {
-        this(); // Call default constructor
-        this.address = address; // Override address
-    }
-
-    /* Overloaded constructor with name, address */
-    public Building(String name, String address) {
-        this(name, address, 1); // Call full constructor with hard-coded # floors
     }
 
     /* Full constructor */
