@@ -54,7 +54,7 @@ public class Building {
         return this; // Return a pointer to the current building
     }
 
-    //make multiple doors and choose which to go out of/enter
+    
     public Building exit() {
         if (this.activeFloor == -1) {
             throw new RuntimeException("You are not inside this Building. Must call enter() before exit().");
@@ -78,12 +78,12 @@ public class Building {
         this.activeFloor = floorNum;
     }
 
-    //add a trampoline to go up multiple floors
+    
     public void goUp() {
         this.goToFloor(this.activeFloor + 1);
     }
 
-    //add a slide to go down multiple floors
+    
     public void goDown() {
         this.goToFloor(this.activeFloor - 1);
     }
