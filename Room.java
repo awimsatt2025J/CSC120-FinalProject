@@ -5,3 +5,5 @@ public class Room {
     private ArrayList<Thing> things;
     
 }
+
+// each individual room is an extension of the room class
