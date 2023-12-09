@@ -8,7 +8,7 @@ public class GameInput {
     private ArrayList <Room> gameMap; //makes an array list of the rooms
     private Person player; //the user
 
-    List<String> commandWords = new ArrayList<>(Arrays.asList("go", "examine", "give", "grab")); //as list of commands the user is allowed to use
+    List<String> commandWords = new ArrayList<>(Arrays.asList("go", "examine", "give", "grab", "use")); //as list of commands the user is allowed to use
     List<String> things = new ArrayList<>(Arrays.asList("coffee", "Jordan's OneCard", "phone")); //a list of objects in the game
 
     public GameInput() {
