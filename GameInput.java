@@ -13,7 +13,7 @@ public class GameInput {
 
     public GameInput() {
         gameMap = new ArrayList <Room> ();
-        gameMap.add(new Room("Ford 241", "CSC 120 Classroom"));
+       // gameMap.add(new Room("Ford 241", "CSC 120 Classroom"));
 
         player = new Person("Player", gameMap.get(0)); //adds the player and sets their location at the CS classroom
     }

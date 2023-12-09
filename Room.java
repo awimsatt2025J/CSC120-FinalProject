@@ -18,7 +18,7 @@ public class Room {
     public boolean isComplete() {
         for(String object: this.neededObjects) {
             if(!this.currentObjects.contains(object)){
-                System.out.println("missing: " + object);
+                System.out.println("missing: " + object); //only prints out the first missing object, and do we want to tell them exactly what is missing or just that it is incorrect?
                 return false;
             }
         }
@@ -67,14 +67,17 @@ public class Room {
         System.out.println(csRoom);
         System.out.println(csRoom.isComplete());
 
-        have.addAll(need);
-        System.out.println(csRoom.isComplete());
-        System.out.println(need);
-        System.out.println(have);
+        csRoom.pickUp("one");
 
-        System.out.println(csRoom.neededObjects);
+        System.out.println(csRoom);
+
+        // have.addAll(need);
+        // System.out.println(csRoom.isComplete());
+        // System.out.println(need);
+        // System.out.println(have);
+
+        // System.out.println(csRoom.neededObjects);
 
     }
 }
 
-// each individual room is an extension of the room class
