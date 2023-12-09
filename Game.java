@@ -13,7 +13,17 @@ public class Game {
 
             while(!g.gameOver) {
                 //get user input
-                
+                //try {
+                //      string input = ___.nextLine();
+                //      switch (input):
+                //          case "pick up"{
+                //              //ask for obj, room.pickUp(obj);
+                //          }
+                //          case "put down":
+                //
+                //          case "exit":
+                //
+                //} catch ()
 
 
                 //respond
