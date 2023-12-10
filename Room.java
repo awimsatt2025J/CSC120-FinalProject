@@ -15,13 +15,14 @@ public class Room {
         this.neededObjects = needed;
     }
 
-    public boolean isComplete() {
+    public boolean isComplete(Game g) {
         for(String object: this.neededObjects) {
             if(!this.currentObjects.contains(object)){
-                System.out.println("missing: " + object); //only prints out the first missing object, and do we want to tell them exactly what is missing or just that it is incorrect?
+                System.out.println("Sorry, this room is not complete!"); //only prints out the first missing object, and do we want to tell them exactly what is missing or just that it is incorrect?
                 return false;
             }
-        }
+        } 
+        g.countCompletedRooms();
         return true;
     }
 
@@ -32,7 +33,7 @@ public class Room {
             currentContents += o + ", ";
         }
 
-        String fullDescription = "The name of this room is " + this.name + " and the description is the following: " + this.description + " The current inventory of this room is: " + currentContents;
+        String fullDescription = this.name + " which is the " + this.description + " there is: " + currentContents + "in this room.";
         return fullDescription;
 
     }
@@ -53,23 +54,23 @@ public class Room {
     }
 
     public static void main(String[] args) {
-        ArrayList<String> have = new ArrayList<String>();
-        have.add("one");
-        have.add("two");
-        have.add("three");
+    //     ArrayList<String> have = new ArrayList<String>();
+    //     have.add("one");
+    //     have.add("two");
+    //     have.add("three");
 
-       ArrayList<String> need = new ArrayList<String>();
-       need.add("four");
-       need.add("five");
-       need.add("six");
+    //    ArrayList<String> need = new ArrayList<String>();
+    //    need.add("four");
+    //    need.add("five");
+    //    need.add("six");
 
-        Room csRoom = new Room("CS room", "This room is where all the computer science objects should be.", have, need);
-        System.out.println(csRoom);
-        System.out.println(csRoom.isComplete());
+    //     Room csRoom = new Room("CS room", "This room is where all the computer science objects should be.", have, need);
+    //     System.out.println(csRoom);
+    //     System.out.println(csRoom.isComplete());
 
-        csRoom.pickUp("one");
+    //     csRoom.pickUp("one");
 
-        System.out.println(csRoom);
+    //     System.out.println(csRoom);
 
         // have.addAll(need);
         // System.out.println(csRoom.isComplete());
