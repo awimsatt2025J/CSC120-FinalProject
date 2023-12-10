@@ -9,7 +9,7 @@ import java.util.Hashtable;
 
 public class Game {
         boolean gameOver;
-        private Hashtable <String, Room> gameMap; //makes an array list of the rooms
+        private Hashtable <String, Room> gameMap;
         private Room currentLocation;
         private int nRoomsComplete;
         private ArrayList <String> inventory;
