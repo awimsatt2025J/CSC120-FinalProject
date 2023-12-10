@@ -64,7 +64,7 @@ public class Game {
         public static void main(String[] args) {
             Game g = new Game();
             //Welcome, etc.
-            System.out.println("Game Intro! Complete the Ford Hall Connections! Fill each classroom with the correct inventory. The methods you can use are: grab, drop, go, and check");
+            System.out.println("Game Intro! Complete the Ford Hall Connections! Fill each classroom with the correct inventory. The methods you can use are: grab, drop, go, check, and help");
 
             while(!g.gameOver) {
                 System.out.println("You are currently in " + g.currentLocation);
@@ -110,6 +110,8 @@ public class Game {
                             } else {
                                 System.out.println("That room does not exist. Try again.");
                             }
+                        case "help":
+                            System.out.println("The commands you can use are: grab, go, drop, and check");
 
                         default:
                             throw new RuntimeException("Invalid command. Try again.");
