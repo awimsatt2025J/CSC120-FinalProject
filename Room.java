@@ -23,6 +23,7 @@ public class Room {
             }
         } 
         g.countCompletedRooms();
+        System.out.println("This room is complete!");
         return true;
     }
 

@@ -59,7 +59,7 @@ public class Game {
                 egRoomneed.add("hammer");
                 egRoomneed.add("compass");
                 egRoomneed.add("3d printer");
-            Room egRoom = new Room("Ford 000", "the egineering playground", egRoomhave, egRoomneed);
+            Room egRoom = new Room("Ford 000", "the engineering playground", egRoomhave, egRoomneed);
             gameMap.put("Ford 000", egRoom);
             this.currentLocation = csRoom;
             this.gameOver = false;
