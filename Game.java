@@ -122,6 +122,7 @@ public class Game {
                             } else {
                                 System.out.println("That room does not exist. Try again.");
                             }
+                            break;
                         case "check":
                             if (g.gameMap.containsKey(wordTwo)) {
                             System.out.println("checking " + wordTwo);
@@ -133,8 +134,10 @@ public class Game {
                             } else {
                                 System.out.println("That room does not exist. Try again.");
                             }
+                            break;
                         case "help":
                             System.out.println("The commands you can use are: grab, go, drop, and check");
+                            break;
 
                         default:
                             throw new RuntimeException("Invalid command. Try again.");
