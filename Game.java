@@ -1,9 +1,6 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
-import javax.management.RuntimeErrorException;
 
 import java.util.Hashtable;
 
@@ -17,25 +14,53 @@ public class Game {
         public Game() {
             this.gameMap = new Hashtable <String, Room> ();
             ArrayList<String> csRoomhave = new ArrayList<String>();
-                csRoomhave.add("one");
-                csRoomhave.add("two");
-                csRoomhave.add("three");
+                csRoomhave.add("oneCard");
+                csRoomhave.add("concical");
+                csRoomhave.add("compass");
+                csRoomhave.add("pea plant");
             ArrayList<String> csRoomneed = new ArrayList<String>();
-                csRoomneed.add("four");
-                csRoomneed.add("five");
-                csRoomneed.add("six");
+                csRoomneed.add("oneCard");
+                csRoomneed.add("lazy dog");
+                csRoomneed.add("train");
+                csRoomneed.add("memory model");
             Room csRoom = new Room("Ford 241", "the computer science classroom", csRoomhave, csRoomneed);
             gameMap.put("Ford 241", csRoom);
             ArrayList<String> chemRoomhave = new ArrayList<String>();
-                chemRoomhave.add("apple");
-                chemRoomhave.add("orange");
-                chemRoomhave.add("cherry");
+                chemRoomhave.add("memory model");
+                chemRoomhave.add("hammer");
+                chemRoomhave.add("petri dish");
+                chemRoomhave.add("worm");
             ArrayList<String> chemRoomneed = new ArrayList<String>();
-                chemRoomneed.add("cucumber");
-                chemRoomneed.add("lettuce");
-                chemRoomneed.add("carrot");
-            Room chemRoom = new Room("Ford 223", "the chemistry lab", chemRoomhave, chemRoomneed);
-            gameMap.put("Ford 223", chemRoom);
+                chemRoomneed.add("concical");
+                chemRoomneed.add("volumetric");
+                chemRoomneed.add("round-bottom");
+                chemRoomneed.add("retort");
+            Room chemRoom = new Room("Ford 100", "the chemistry lab", chemRoomhave, chemRoomneed);
+            gameMap.put("Ford 100", chemRoom);
+            ArrayList<String> bioRoomhave = new ArrayList<String>();
+                bioRoomhave.add("volumetric");
+                bioRoomhave.add("saw");
+                bioRoomhave.add("retort");
+                bioRoomhave.add("lazy dog");
+            ArrayList<String> bioRoomneed = new ArrayList<String>();
+                bioRoomneed.add("pea plant");
+                bioRoomneed.add("worm");
+                bioRoomneed.add("cell diagram");
+                bioRoomneed.add("petri dish");
+            Room bioRoom = new Room("Ford 300", "the biology classroom", bioRoomhave, bioRoomneed);
+            gameMap.put("Ford 300", bioRoom);
+            ArrayList<String> egRoomhave = new ArrayList<String>();
+                egRoomhave.add("train");
+                egRoomhave.add("cell diagram");
+                egRoomhave.add("3d printer");
+                egRoomhave.add("round-bottom");
+            ArrayList<String> egRoomneed = new ArrayList<String>();
+                egRoomneed.add("saw");
+                egRoomneed.add("hammer");
+                egRoomneed.add("compass");
+                egRoomneed.add("3d printer");
+            Room egRoom = new Room("Ford 000", "the egineering playground", egRoomhave, egRoomneed);
+            gameMap.put("Ford 000", egRoom);
             this.currentLocation = csRoom;
             // gameMap.add(new Room("Ford 300", "The computer science classroom", csRoomhave, csRoomneed));
             this.gameOver = false;
@@ -65,6 +90,7 @@ public class Game {
             Game g = new Game();
             //Welcome, etc.
             System.out.println("Game Intro! Complete the Ford Hall Connections! Fill each classroom with the correct inventory. The methods you can use are: grab, drop, go, check, and help");
+            System.out.println("The rooms are: Ford 000, Ford 100, Ford 241, Ford 300");
 
             while(!g.gameOver) {
                 System.out.println("You are currently in " + g.currentLocation);
