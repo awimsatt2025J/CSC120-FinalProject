@@ -92,7 +92,8 @@ public class Game {
             while(!g.gameOver) {
                 System.out.println("You are currently in " + g.currentLocation);
                 String[] splitResponse = g.userInput();
-                String wordOne = splitResponse[0];
+                String wordOne = splitResponse[0]; 
+                // if split repsonse length is 1, and word one is not help, throw error, otherwise proceed with code
                 String wordTwo = splitResponse[1];
                 try {
                     switch(wordOne){
