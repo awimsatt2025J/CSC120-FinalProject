@@ -62,7 +62,6 @@ public class Game {
             Room egRoom = new Room("Ford 000", "the egineering playground", egRoomhave, egRoomneed);
             gameMap.put("Ford 000", egRoom);
             this.currentLocation = csRoom;
-            // gameMap.add(new Room("Ford 300", "The computer science classroom", csRoomhave, csRoomneed));
             this.gameOver = false;
             this.nRoomsComplete = 0;
             this.inventory = new ArrayList<String> ();
@@ -73,8 +72,6 @@ public class Game {
         public String[] userInput(){
             Scanner user_input = new Scanner(System.in);
             System.out.println("What would you like to do: ");
-            //List<String> commandWords = new ArrayList<>(Arrays.asList("grab", "drop", "go")); //as list of commands the user is allowed to use
-           // List<String> things = new ArrayList<>(Arrays.asList("one", "two", "three", "left", "right")); //a list of objects in the game
             String response = user_input.nextLine();
             String[] splitResponse = response.split(" ", 2);
             
