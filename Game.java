@@ -74,7 +74,7 @@ public class Game {
          */
         public String[] userInput(){
             Scanner user_input = new Scanner(System.in);
-            System.out.println("What would you like to do: ");
+            System.out.println("What would you like to do? ");
             String response = user_input.nextLine();
             String[] splitResponse = response.split(" ", 2);
             
@@ -89,6 +89,10 @@ public class Game {
             this.nRoomsComplete ++;
         }
 
+        public void displayInventory(){
+            System.out.println("Your inventory is: " + this.inventory);
+        }
+
     
         public static void main(String[] args) {
             Game g = new Game();
@@ -100,59 +104,76 @@ public class Game {
                 System.out.println("You are currently in " + g.currentLocation);
                 String[] splitResponse = g.userInput();
                 String wordOne = splitResponse[0]; 
-                // if split repsonse length is 1, and word one is not help, throw error, otherwise proceed with code
-                String wordTwo = splitResponse[1];
-                try {
+                if (splitResponse.length == 1){
                     switch(wordOne){
-                        case "grab":
-                            try {
-                                g.currentLocation.pickUp(wordTwo);
-                                System.out.println("grabbing " + wordTwo);
-                                g.inventory.add(wordTwo);
-                            } catch (RuntimeException e) { 
-                                System.out.println(e);
-                            }
-                            break;
-                        case "drop":
-                            if (g.inventory.contains(wordTwo)) {
-                                g.currentLocation.putDown(wordTwo);
-                                System.out.println("dropping " + wordTwo);
-                                g.inventory.remove(wordTwo);
-                            } else {
-                                System.out.println( wordTwo + " is not in your inventory. Please try again.");
-                            }
-                             
-                            break;
-                        case "go":
-                            if (g.gameMap.containsKey(wordTwo)) {
-                                System.out.println("going to " + wordTwo);
-                                g.currentLocation = g.gameMap.get(wordTwo);   
-                            } else {
-                                System.out.println("That room does not exist. Try again.");
-                            }
-                            break;
-                        case "check":
-                            if (g.gameMap.containsKey(wordTwo)) {
-                            System.out.println("checking " + wordTwo);
-                                g.gameMap.get(wordTwo).isComplete(g);
-                                if (g.nRoomsComplete == 4) {
-                                    System.out.println("Congrats, you win!");
-                                    g.gameOver = true;
-                                }                                
-                            } else {
-                                System.out.println("That room does not exist. Try again.");
-                            }
-                            break;
                         case "help":
-                            System.out.println("The commands you can use are: grab, go, drop, and check");
-                            break;
-
+                            System.out.println("The commands you can use are: grab, go, drop, and check. The rooms are Ford 000, Ford 100, Ford 241, and Ford 300.");
+                            break;  
                         default:
-                            throw new RuntimeException("Invalid command. Try again.");
+                            System.out.println("Invalid command. Try again");
                     }
-                } catch (RuntimeException e) { 
-                    System.out.println(e);
-                } 
+                }
+                else {
+                // if split repsonse length is 1, and word one is not help, throw error, otherwise proceed with code
+                    String wordTwo = splitResponse[1];
+                    try {
+                        switch(wordOne){
+                            case "view":
+                                if (wordTwo.equals("inventory")) {
+                                    g.displayInventory();
+                                } else {
+                                    System.out.println("You are only allowed to view your inventory.");
+                                }
+                                break;
+                                
+                            case "grab":
+                                try {
+                                    g.currentLocation.pickUp(wordTwo);
+                                    System.out.println("grabbing " + wordTwo);
+                                    g.inventory.add(wordTwo);
+                                } catch (RuntimeException e) { 
+                                    System.out.println(e);
+                                }
+                                break;
+                            case "drop":
+                                if (g.inventory.contains(wordTwo)) {
+                                    g.currentLocation.putDown(wordTwo);
+                                    System.out.println("dropping " + wordTwo);
+                                    g.inventory.remove(wordTwo);
+                                } else {
+                                    System.out.println( wordTwo + " is not in your inventory. Please try again.");
+                                }
+                                
+                                break;
+                            case "go":
+                                if (g.gameMap.containsKey(wordTwo)) {
+                                    System.out.println("going to " + wordTwo);
+                                    g.currentLocation = g.gameMap.get(wordTwo);   
+                                } else {
+                                    System.out.println("That room does not exist. Try again.");
+                                }
+                                break;
+                            case "check":
+                                if (g.gameMap.containsKey(wordTwo)) {
+                                System.out.println("checking " + wordTwo);
+                                    g.gameMap.get(wordTwo).isComplete(g);
+                                    if (g.nRoomsComplete == 4) {
+                                        System.out.println("Congrats, you win!");
+                                        g.gameOver = true;
+                                    }                                
+                                } else {
+                                    System.out.println("That room does not exist. Try again.");
+                                }
+                                break;
+
+
+                            default:
+                                throw new RuntimeException("Invalid command. Try again.");
+                        }
+                    } catch (RuntimeException e) { 
+                        System.out.println(e);
+                    } 
+                    }
             // for (int i = 0; i < splitResponse.length; i++) {
             //     System.out.println(splitResponse[i]);
             // }

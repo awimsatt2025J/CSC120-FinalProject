@@ -71,30 +71,7 @@ public class Room {
     }
 
     public static void main(String[] args) {
-    //     ArrayList<String> have = new ArrayList<String>();
-    //     have.add("one");
-    //     have.add("two");
-    //     have.add("three");
 
-    //    ArrayList<String> need = new ArrayList<String>();
-    //    need.add("four");
-    //    need.add("five");
-    //    need.add("six");
-
-    //     Room csRoom = new Room("CS room", "This room is where all the computer science objects should be.", have, need);
-    //     System.out.println(csRoom);
-    //     System.out.println(csRoom.isComplete());
-
-    //     csRoom.pickUp("one");
-
-    //     System.out.println(csRoom);
-
-        // have.addAll(need);
-        // System.out.println(csRoom.isComplete());
-        // System.out.println(need);
-        // System.out.println(have);
-
-        // System.out.println(csRoom.neededObjects);
 
     }
 }
