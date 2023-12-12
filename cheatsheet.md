@@ -8,6 +8,7 @@ The grab command removes an item from the current location's inventory and adds 
 The drop command adds an item to the current location's inventory and removes it from the player's inventory
 The check command checks if the current location's inventory is the needed inventory of the room
 
+
 These are are correct objects for each room:
 
 The computer science classroom: oneCard, Lazy Dog, Train, Memory Model
@@ -18,3 +19,5 @@ The chem lab: Conical, Volumetric, Round-bottomed, Retort
 # SPOILER ALERT
 
 If your game includes challenges that must be overcome to win, also list them below.
+
+The challenge is to change the arraylist of the current objects of each room to equal the arraylist of needed objects for each room (there are four rooms).

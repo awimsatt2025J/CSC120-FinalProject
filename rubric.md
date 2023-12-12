@@ -33,13 +33,13 @@ _____ 2 pts: Executes fully & consistently without crashing (exception/freeze).
 
 _____ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
-      _____ Classes & class members all have Javadoc header comments.
+      ___Yes__ Classes & class members all have Javadoc header comments.
 
-      _____ Clear and consistent indentation of bracketed sections.
+      ___Yes__ Clear and consistent indentation of bracketed sections.
 
-      _____ Adheres to Java conventions on naming & capitalization.
+      ___Yes__ Adheres to Java conventions on naming & capitalization.
 
-      _____ Methods & variables all have clear and accurate names.
+      ___Yes__ Methods & variables all have clear and accurate names.
 
       _____ Methods avoid confusing side effects.
 

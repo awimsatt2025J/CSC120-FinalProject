@@ -1,74 +1,77 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
-
 import java.util.Hashtable;
 
-public class Game {
-        boolean gameOver;
-        private Hashtable <String, Room> gameMap;
-        private Room currentLocation;
-        private int nRoomsComplete;
-        private ArrayList <String> inventory;
 
+public class Game {
+        /* Class attributes */
+        boolean gameOver; //tells us if the game is completed or not
+        private Hashtable <String, Room> gameMap; //collects all the rooms into one Hashtable
+        private Room currentLocation; //the location the user is currently un
+        private int nRoomsComplete; //the number of rooms that the user has completed (gotten currentObjects to equal neededObjects)
+        private ArrayList <String> inventory; //includes the things that the user currently possesses
+
+        /* Constructor */
         public Game() {
             this.gameMap = new Hashtable <String, Room> ();
-            ArrayList<String> csRoomhave = new ArrayList<String>();
-                csRoomhave.add("oneCard");
+            ArrayList<String> csRoomhave = new ArrayList<String>(); //creates arraylist of current things in the CS room
+                csRoomhave.add("oneCard"); //adding things to the arraylist of current things in the CS room
                 csRoomhave.add("concical");
                 csRoomhave.add("compass");
                 csRoomhave.add("pea plant");
-            ArrayList<String> csRoomneed = new ArrayList<String>();
-                csRoomneed.add("oneCard");
+            ArrayList<String> csRoomneed = new ArrayList<String>(); //creates arraylist of needed things for the CS room
+                csRoomneed.add("oneCard"); //adding things to the arraylist of needed things for the CS room
                 csRoomneed.add("lazy dog");
                 csRoomneed.add("train");
                 csRoomneed.add("memory model");
-            Room csRoom = new Room("Ford 241", "the computer science classroom", csRoomhave, csRoomneed);
-            gameMap.put("Ford 241", csRoom);
-            ArrayList<String> chemRoomhave = new ArrayList<String>();
-                chemRoomhave.add("memory model");
+            Room csRoom = new Room("Ford 241", "the computer science classroom", csRoomhave, csRoomneed); //creates a new room for computer science
+            gameMap.put("Ford 241", csRoom); //adds the CS room to the gameMap hashtable
+            ArrayList<String> chemRoomhave = new ArrayList<String>(); //creates arraylist of current things in the chem room
+                chemRoomhave.add("memory model"); //adding things to the current things in the chem room
                 chemRoomhave.add("hammer");
                 chemRoomhave.add("petri dish");
                 chemRoomhave.add("worm");
-            ArrayList<String> chemRoomneed = new ArrayList<String>();
-                chemRoomneed.add("concical");
+            ArrayList<String> chemRoomneed = new ArrayList<String>(); //creates arraylist of needed things in the chem room
+                chemRoomneed.add("concical"); //adding things to the arraylist of needed things for the chem room
                 chemRoomneed.add("volumetric");
                 chemRoomneed.add("round-bottom");
                 chemRoomneed.add("retort");
-            Room chemRoom = new Room("Ford 100", "the chemistry lab", chemRoomhave, chemRoomneed);
-            gameMap.put("Ford 100", chemRoom);
-            ArrayList<String> bioRoomhave = new ArrayList<String>();
-                bioRoomhave.add("volumetric");
+            Room chemRoom = new Room("Ford 100", "the chemistry lab", chemRoomhave, chemRoomneed); //creates a new room for chemistry
+            gameMap.put("Ford 100", chemRoom); //adds the chem room to the gameMap hashtable
+            ArrayList<String> bioRoomhave = new ArrayList<String>(); //creates rraylist of current things in the bio room
+                bioRoomhave.add("volumetric"); //adding things to the arraylist of current things in the bio room
                 bioRoomhave.add("saw");
                 bioRoomhave.add("retort");
                 bioRoomhave.add("lazy dog");
-            ArrayList<String> bioRoomneed = new ArrayList<String>();
-                bioRoomneed.add("pea plant");
+            ArrayList<String> bioRoomneed = new ArrayList<String>(); //creates arraylist of needed things for the bio room
+                bioRoomneed.add("pea plant"); //adding things to the arraylist of needed things for the bio room
                 bioRoomneed.add("worm");
                 bioRoomneed.add("cell diagram");
                 bioRoomneed.add("petri dish");
-            Room bioRoom = new Room("Ford 300", "the biology classroom", bioRoomhave, bioRoomneed);
-            gameMap.put("Ford 300", bioRoom);
-            ArrayList<String> egRoomhave = new ArrayList<String>();
-                egRoomhave.add("train");
+            Room bioRoom = new Room("Ford 300", "the biology classroom", bioRoomhave, bioRoomneed); //creates a new room for biology
+            gameMap.put("Ford 300", bioRoom); //adds the bio room to the gameMap hashtable
+            ArrayList<String> egRoomhave = new ArrayList<String>(); //creates arraylist of current things in the engineering room
+                egRoomhave.add("train"); //adding things to the arraylist of current things in the engineering room
                 egRoomhave.add("cell diagram");
                 egRoomhave.add("3d printer");
                 egRoomhave.add("round-bottom");
-            ArrayList<String> egRoomneed = new ArrayList<String>();
-                egRoomneed.add("saw");
+            ArrayList<String> egRoomneed = new ArrayList<String>(); //creates arraylist of needed things for the engineering room
+                egRoomneed.add("saw"); //adding things to the arraylist of needed things for the engineering room
                 egRoomneed.add("hammer");
                 egRoomneed.add("compass");
                 egRoomneed.add("3d printer");
-            Room egRoom = new Room("Ford 000", "the engineering playground", egRoomhave, egRoomneed);
-            gameMap.put("Ford 000", egRoom);
-            this.currentLocation = csRoom;
-            this.gameOver = false;
-            this.nRoomsComplete = 0;
-            this.inventory = new ArrayList<String> ();
-            //other set-up
+            Room egRoom = new Room("Ford 000", "the engineering playground", egRoomhave, egRoomneed); //creates a new room for engineering
+            gameMap.put("Ford 000", egRoom); //adds the engineering room to the gameMap hashtable
+            this.currentLocation = csRoom; //starts the user in the computer science room
+            this.gameOver = false; //initializes the game as not gameOver to start
+            this.nRoomsComplete = 0; //initializes the number of rooms completed by the user to 0
+            this.inventory = new ArrayList<String> (); //initializes the user's inventory to be empty
         }        
 
-
+        /**
+         * Receives/processes what the user inputs what they would like to do
+         * @return splitResponse - an array of strings that the user inputed, that is split between their first word and their second word (puts the first string into the 0 index of the array and the second one into the 1 index of the array)
+         */
         public String[] userInput(){
             Scanner user_input = new Scanner(System.in);
             System.out.println("What would you like to do: ");
@@ -79,9 +82,13 @@ public class Game {
             
         }
 
+        /**
+         * Counts the number of rooms that the user has completed (the # of rooms they have gotten the current objects to equal the needed objects)
+         */
         public void countCompletedRooms(){
             this.nRoomsComplete ++;
         }
+
     
         public static void main(String[] args) {
             Game g = new Game();
