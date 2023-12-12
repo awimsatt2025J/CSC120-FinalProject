@@ -47,6 +47,10 @@ public class Room {
 
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     /**
      * Removes a thing that you would like to "pick up" from the currentObjects arraylist of a particular room
      * @param obj - the object you would like to pick up

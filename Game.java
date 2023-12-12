@@ -25,7 +25,7 @@ public class Game {
                 csRoomneed.add("train");
                 csRoomneed.add("memory model");
             Room csRoom = new Room("Ford 241", "the computer science classroom", csRoomhave, csRoomneed); //creates a new room for computer science
-            gameMap.put("Ford 241", csRoom); //adds the CS room to the gameMap hashtable
+            gameMap.put("ford 241", csRoom); //adds the CS room to the gameMap hashtable
             ArrayList<String> chemRoomhave = new ArrayList<String>(); //creates arraylist of current things in the chem room
                 chemRoomhave.add("memory model"); //adding things to the current things in the chem room
                 chemRoomhave.add("hammer");
@@ -37,7 +37,7 @@ public class Game {
                 chemRoomneed.add("round-bottom");
                 chemRoomneed.add("retort");
             Room chemRoom = new Room("Ford 100", "the chemistry lab", chemRoomhave, chemRoomneed); //creates a new room for chemistry
-            gameMap.put("Ford 100", chemRoom); //adds the chem room to the gameMap hashtable
+            gameMap.put("ford 100", chemRoom); //adds the chem room to the gameMap hashtable
             ArrayList<String> bioRoomhave = new ArrayList<String>(); //creates rraylist of current things in the bio room
                 bioRoomhave.add("volumetric"); //adding things to the arraylist of current things in the bio room
                 bioRoomhave.add("saw");
@@ -49,7 +49,7 @@ public class Game {
                 bioRoomneed.add("cell diagram");
                 bioRoomneed.add("petri dish");
             Room bioRoom = new Room("Ford 300", "the biology classroom", bioRoomhave, bioRoomneed); //creates a new room for biology
-            gameMap.put("Ford 300", bioRoom); //adds the bio room to the gameMap hashtable
+            gameMap.put("ford 300", bioRoom); //adds the bio room to the gameMap hashtable
             ArrayList<String> egRoomhave = new ArrayList<String>(); //creates arraylist of current things in the engineering room
                 egRoomhave.add("train"); //adding things to the arraylist of current things in the engineering room
                 egRoomhave.add("cell diagram");
@@ -61,7 +61,7 @@ public class Game {
                 egRoomneed.add("compass");
                 egRoomneed.add("3d printer");
             Room egRoom = new Room("Ford 000", "the engineering playground", egRoomhave, egRoomneed); //creates a new room for engineering
-            gameMap.put("Ford 000", egRoom); //adds the engineering room to the gameMap hashtable
+            gameMap.put("ford 000", egRoom); //adds the engineering room to the gameMap hashtable
             this.currentLocation = csRoom; //starts the user in the computer science room
             this.gameOver = false; //initializes the game as not gameOver to start
             this.nRoomsComplete = 0; //initializes the number of rooms completed by the user to 0
@@ -75,7 +75,7 @@ public class Game {
         public String[] userInput(){
             Scanner user_input = new Scanner(System.in);
             System.out.println("What would you like to do? ");
-            String response = user_input.nextLine();
+            String response = user_input.nextLine().toLowerCase();
             String[] splitResponse = response.split(" ", 2);
             
             return splitResponse;
@@ -103,7 +103,7 @@ public class Game {
             while(!g.gameOver) {
                 System.out.println("You are currently in " + g.currentLocation);
                 String[] splitResponse = g.userInput();
-                String wordOne = splitResponse[0]; 
+                String wordOne = splitResponse[0];
                 if (splitResponse.length == 1){
                     switch(wordOne){
                         case "help":
@@ -114,7 +114,7 @@ public class Game {
                     }
                 }
                 else {
-                // if split repsonse length is 1, and word one is not help, throw error, otherwise proceed with code
+                    //if split repsonse length is 1, and word one is not help, throw error, otherwise proceed with code
                     String wordTwo = splitResponse[1];
                     try {
                         switch(wordOne){
@@ -147,8 +147,9 @@ public class Game {
                                 break;
                             case "go":
                                 if (g.gameMap.containsKey(wordTwo)) {
-                                    System.out.println("going to " + wordTwo);
-                                    g.currentLocation = g.gameMap.get(wordTwo);   
+                                    g.currentLocation = g.gameMap.get(wordTwo);
+                                    System.out.println("going to " + g.currentLocation.getName());
+                                    
                                 } else {
                                     System.out.println("That room does not exist. Try again.");
                                 }
